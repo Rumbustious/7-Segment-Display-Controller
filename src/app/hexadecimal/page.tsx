@@ -13,24 +13,24 @@ export default function Hexadecimal() {
 
   console.log(segemntDisplay);
 
-  const convertBinaryToHexArray = (binaryStr) => {
+  function BinarytoHex(binaryStr) {
     let multiplier = 0;
     let output = 0;
     let HexArray = [];
     for (let i = binaryStr.length - 1; i >= 0; i--) {
       let digit = +binaryStr[i];
-      output += digit * (2 ** multiplier);
+      output += digit * 2 ** multiplier;
       multiplier++;
     }
 
-    while (output != 0){
+    while (output != 0) {
       HexArray.push(output % 16);
-      output = Math.floor(output / 16)
+      output = Math.floor(output / 16);
     }
     return HexArray;
-  };
+  }
 
-  const hexadecimalArray = convertBinaryToHexArray(segemntDisplay);
+  const hexadecimalArray = BinarytoHex(segemntDisplay);
 
   const hexadecimal = {
     "0": "abcdef",

@@ -7,29 +7,27 @@ import "../index.css";
 import { useState } from "react";
 
 export default function Decimal() {
-  
   const [binaryInput, setBinaryInput] = useState("");
   const [numberOfBits, setNumberOfBits] = useState(1);
   const [cellsLimit, setCellsLimit] = useState(null);
-  const [segemntDisplay, setSegementDisplay] = useState("")
+  const [segemntDisplay, setSegementDisplay] = useState("");
 
-console.log(segemntDisplay)
+  console.log(segemntDisplay);
 
-  const convertBinaryToDecimalArray = (binaryStr) => {
+  function BinarytoDecimal(binarySt) {
     let multiplier = 0;
     let output = 0;
     for (let i = binaryStr.length - 1; i >= 0; i--) {
       let digit = +binaryStr[i];
-      output += digit * (2 ** multiplier);
+      output += digit * 2 ** multiplier;
       multiplier++;
     }
 
-    
     const digitsArray = output.toString().split("");
     return digitsArray;
-  };
+  }
 
-  const decimalArray = convertBinaryToDecimalArray(segemntDisplay);
+  const decimalArray = BinarytoDecimal(segemntDisplay);
 
   const decimal = {
     "0": "abcdef",
@@ -55,14 +53,14 @@ console.log(segemntDisplay)
               setNumberOfBits={setNumberOfBits}
               cellsLimit={cellsLimit}
               setCellsLimit={setCellsLimit}
-              segemntDisplay = {segemntDisplay}
-              setSegementDisplay = {setSegementDisplay}
+              segemntDisplay={segemntDisplay}
+              setSegementDisplay={setSegementDisplay}
             />
           </SplitterPanel>
           <SplitterPanel
             size={50}
             minSize={30}
-            className="flex flex-row justify-center rtl"
+            className="flex flex-row justify-center"
           >
             {decimalArray.map((element) => (
               <SevenSegment key={element} input={decimal[element]} />
