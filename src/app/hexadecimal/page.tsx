@@ -14,7 +14,20 @@ export default function Hexadecimal() {
   console.log(segemntDisplay);
 
   const convertBinaryToHexArray = (binaryStr) => {
-    return [0];
+    let multiplier = 0;
+    let output = 0;
+    let HexArray = [];
+    for (let i = binaryStr.length - 1; i >= 0; i--) {
+      let digit = +binaryStr[i];
+      output += digit * (2 ** multiplier);
+      multiplier++;
+    }
+
+    while (output != 0){
+      HexArray.push(output % 16);
+      output = Math.floor(output / 16)
+    }
+    return HexArray;
   };
 
   const hexadecimalArray = convertBinaryToHexArray(segemntDisplay);
@@ -30,12 +43,12 @@ export default function Hexadecimal() {
     "7": "abc",
     "8": "abcdefg",
     "9": "abcdfg",
-    A: "abcefg",
-    b: "fcdeg",
-    C: "afed",
-    d: "bcdeg",
-    E: "afedg",
-    F: "afeg",
+    "10": "abcefg",
+    "11": "fcdeg",
+    "12": "afed",
+    "13": "bcdeg",
+    "14": "afedg",
+    "15": "afeg",
   };
   return (
     <main>
@@ -56,7 +69,7 @@ export default function Hexadecimal() {
           <SplitterPanel
             size={50}
             minSize={30}
-            className="flex flex-row justify-center rtl"
+            className="flex flex-row-reverse justify-center"
           >
             {hexadecimalArray.map((element) => (
               <SevenSegment key={element} input={hexadecimal[element]} />
