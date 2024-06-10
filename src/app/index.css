@@ -1,0 +1,6 @@
+.p-splitter-gutter {
+    background-color: hsla(214 30% 91% / 0.4);
+}
+.p-splitter-gutter-handle{
+    background-color: hsla(214 30% 91% / 1);;
+}

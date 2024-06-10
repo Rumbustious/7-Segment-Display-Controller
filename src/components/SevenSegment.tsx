@@ -19,12 +19,10 @@ const segments: { [key: string]: SegmentRect | SegmentDot } = {
   ".": [130, 185, 5, 0, 2 * Math.PI],
 };
 
-export default function SevenSegment({input, ...props}: CanvasProps) {
+export default function SevenSegment({ input, ...props }: CanvasProps) {
   const ref = useRef<HTMLCanvasElement>(null);
 
-
   useEffect(() => {
-
     const canvas = ref.current;
     if (!canvas) return;
     console.log(canvas);
@@ -32,40 +30,40 @@ export default function SevenSegment({input, ...props}: CanvasProps) {
     const context = canvas.getContext("2d");
     if (!context) return;
 
-     drawOffSegments(context);
+    drawOffSegments(context);
 
-     drawOnSegments(context, input);
-
-   
+    drawOnSegments(context, input);
   }, [input]);
 
   return (
-    <canvas
-      className="bg-segment-block m-1"
-      ref={ref}
-      width={140}
-      height={200}
-      {...props}
-    />
+    <div>
+      <canvas
+        className="bg-primary m-1"
+        ref={ref}
+        width={140}
+        height={200}
+        {...props}
+      />
+    </div>
   );
 }
 
-function drawOffSegments(context : CanvasRenderingContext2D) {
+function drawOffSegments(context: CanvasRenderingContext2D) {
   context.fillStyle = "#B3B8B1";
-    context.beginPath();
-    Object.values(segments).forEach((segment) => {
-      segment.length === 4
-        ? context.rect(...(segment as SegmentRect))
-        : context.arc(...(segment as SegmentDot));
-    });
-    context.arc(...(segments["."] as SegmentDot)); // dot
-    context.fill();
+  context.beginPath();
+  Object.values(segments).forEach((segment) => {
+    segment.length === 4
+      ? context.rect(...(segment as SegmentRect))
+      : context.arc(...(segment as SegmentDot));
+  });
+  context.arc(...(segments["."] as SegmentDot)); // dot
+  context.fill();
 }
 
-function drawOnSegments(context : CanvasRenderingContext2D, input?: string) {
+function drawOnSegments(context: CanvasRenderingContext2D, input?: string) {
   context.beginPath();
   context.fillStyle = "red";
-  
+
   if (!input) return;
   for (const segment of input) {
     const segmentCoords = segments[segment];

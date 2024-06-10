@@ -5,7 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Digital Project",
+  title: "7-Segment Display Controller",
 };
 
 export default function RootLayout({
@@ -15,7 +15,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <h1 className="text-6xl font-bold text-center p-8">
+          <span className="text-red-600">7</span> Segements Digital Project
+        </h1>
+
+        {children}
+      </body>
     </html>
   );
 }

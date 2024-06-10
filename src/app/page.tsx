@@ -1,30 +1,27 @@
-import SevenSegment from "./components/SevenSegment";
+import ControlPanel from "../components/ControlPanel";
+import SevenSegment from "../components/SevenSegment";
+import { Splitter, SplitterPanel } from "primereact/splitter";
+import "./index.css";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function Home() {
-  const hexadecimal = {
-    "0": "abcdef",
-    "1": "ef",
-    "2": "abged",
-    "3": "abcdg",
-    "4": "fbgc",
-    "5": "afcdg",
-    "6": "afedcg",
-    "7": "abc",
-    "8": "abcdefg",
-    "9": "abcdfg",
-    A: "abcefg",
-    b: "fcdeg",
-    C: "afed",
-    d: "bcdeg",
-    E: "afedg",
-    F: "afeg",
-  };
   return (
-    <main>
-      <h1>7 Segments Project</h1>
-      <SevenSegment input={hexadecimal["d"]} />
+    <main className="flex justify-center">
+      <div className="flex flex-col gap-6 *:font-bold *:text-2xl *:py-6 *:px-14 border-2 py-20 px-60">
+        <Button asChild>
+          <Link href="/decimal">Decimal</Link>
+        </Button>
+        <Button asChild>
+          <Link href="/hexadecimal">Hexadecimal</Link>
+        </Button>
+        <Button asChild>
+          <Link href="/letters">Letters</Link>
+        </Button>
+        <Button asChild>
+          <Link href="/counter">Counter</Link>
+        </Button>
+      </div>
     </main>
   );
 }
-
-
