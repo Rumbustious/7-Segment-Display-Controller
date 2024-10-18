@@ -63,7 +63,7 @@ export default function Decimal() {
             className="flex flex-row justify-center"
           >
             {decimalArray.map((element) => (
-              <SevenSegment key={element} input={decimal[element]} />
+              <SevenSegment key={element} input={decimal[element as keyof typeof decimal]} />
             ))}
           </SplitterPanel>
         </Splitter>

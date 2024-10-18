@@ -1,3 +1,4 @@
+"use client";
 import ControlPanel from "../components/ControlPanel";
 import SevenSegment from "../components/SevenSegment";
 import { Splitter, SplitterPanel } from "primereact/splitter";
@@ -16,10 +17,22 @@ export default function Home() {
           <Link href="/hexadecimal">Hexadecimal</Link>
         </Button>
         <Button asChild>
-          <Link href="/letters">Letters</Link>
+          <Link
+            href="/letters"
+            onClick={(e) => e.preventDefault()}
+            className="hover:cursor-not-allowed"
+          >
+            Letters
+          </Link>
         </Button>
         <Button asChild>
-          <Link href="/counter">Counter</Link>
+          <Link
+            href="/counter"
+            onClick={(e) => e.preventDefault()}
+            className="hover:cursor-not-allowed"
+          >
+            Counter
+          </Link>
         </Button>
       </div>
     </main>
