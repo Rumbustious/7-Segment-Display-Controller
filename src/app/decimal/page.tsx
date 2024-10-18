@@ -14,7 +14,7 @@ export default function Decimal() {
 
   console.log(segemntDisplay);
 
-  function BinarytoDecimal(binaryStr : string) {
+  function BinarytoDecimal(binaryStr: string): string[] {
     let multiplier = 0;
     let output = 0;
     for (let i = binaryStr.length - 1; i >= 0; i--) {
