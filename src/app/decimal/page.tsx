@@ -27,7 +27,7 @@ export default function Decimal() {
     return digitsArray;
   }
 
-  const decimalArray = BinarytoDecimal(segemntDisplay);
+  const decimalArray = BinarytoDecimal(segemntDisplay as string);
 
   const decimal = {
     "0": "abcdef",
@@ -63,7 +63,10 @@ export default function Decimal() {
             className="flex flex-row justify-center"
           >
             {decimalArray.map((element) => (
-              <SevenSegment key={element} input={decimal[element as keyof typeof decimal]} />
+              <SevenSegment
+                key={element}
+                input={decimal[element as keyof typeof decimal]}
+              />
             ))}
           </SplitterPanel>
         </Splitter>

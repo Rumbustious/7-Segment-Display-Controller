@@ -13,7 +13,7 @@ export default function Hexadecimal() {
 
   console.log(segemntDisplay);
 
-  function BinarytoHex(binaryStr) {
+  function BinarytoHex(binaryStr : string): number[] {
     let multiplier = 0;
     let output = 0;
     let HexArray = [];
@@ -32,7 +32,7 @@ export default function Hexadecimal() {
 
   const hexadecimalArray = BinarytoHex(segemntDisplay);
 
-  const hexadecimal = {
+  const hexadecimal: { [key: number]: string } = {
     "0": "abcdef",
     "1": "bc",
     "2": "abged",
@@ -76,7 +76,7 @@ export default function Hexadecimal() {
             ))}
           </SplitterPanel>
         </Splitter>
-      </div>
+      </div>a
     </main>
   );
 }
